@@ -9,6 +9,7 @@ angular.module('Twenty20App', [
     'ui.router',
     'ui.bootstrap',
     // addons
+    'picardy.fontawesome', // font awesooooome
     'pippTimelineDirectives',   // timeline
     'Twenty20App.config',       // config
   ])
@@ -16,6 +17,19 @@ angular.module('Twenty20App', [
     $stateProvider
       .state('home', {
         url: '/',
+        templateUrl: 'app/main/main.html',
+        controller: 'MainCtrl'
+      })
+      // ------------------------------------------
+      // Generic
+      // ------------------------------------------
+      .state('about', {
+        url: '/about',
+        templateUrl: 'app/main/main.html',
+        controller: 'MainCtrl'
+      })
+      .state('contact', {
+        url: '/contact',
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
       })
