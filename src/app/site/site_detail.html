@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="jumbotron">
+    <h1>Timeline for {{ object.name }}</h1>
+    <p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>
+    <div class="row">
+      <div class="checkbox" ng-repeat="u in urls">
+        <label>
+          <input type="checkbox" value="{{ u.index }}" />
+          {{ u.url }}
+        </label>
+      </div>
+    </div>
+
+  </div>
+
+  <pipp-timeline-j-s source="timelineData"
+                     height="400"
+                     width="100%"
+                     start-zoom-adjust="0"
+                     start-at-end="true"
+                     start-at-slide="0"
+                     hash-bookmark="false"
+                     lang="en"
+                     debug="false"></pipp-timeline-j-s>
+
+</div>

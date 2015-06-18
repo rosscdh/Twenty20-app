@@ -1,0 +1,13 @@
+<div class="jumbotron">
+  <h1>Sites</h1>
+</div>
+
+
+<div class="container">
+  <article class="post col-md-3 col-sm-2 col-xs-1" ng-repeat="site in data.results" ui-sref="site-detail({pk: site.id})">
+      <h3 class="post-title"><small>{{ site.url }}</small><br/><b>{{ site.name }}</b></h3>
+      <div class="post-entry">
+          &nbsp;
+      </div>
+  </article><!--//post-->
+</div>
