@@ -4,9 +4,9 @@ angular.module('Twenty20App')
   .controller('UrlCreateCtrl', [
     '$scope',
     '$stateParams',
-    'UrlService',
+    'Twenty20UrlService',
     'Twenty20AppConf',
-  function ($scope, $stateParams, UrlService, Twenty20AppConf) {
+  function ($scope, $stateParams, Twenty20UrlService, Twenty20AppConf) {
 
     var init = function () {
 
@@ -39,6 +39,7 @@ angular.module('Twenty20App')
 
     function onSubmit() {
       console.log('form submitted:', $scope.url);
+      Twenty20UrlService.check($scope.url.url).then(function(data){ console.log(data) })
     }
 
     /**

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Twenty20App')
-  .factory('UrlService', [
+  .factory('Twenty20UrlService', [
     '$q',
     '$log',
     '$resource',
@@ -9,10 +9,10 @@ angular.module('Twenty20App')
     function($q, $log, $resource, Twenty20AppConf) {
 
       function siteAPI() {
-        return $resource(Twenty20AppConf.API_ENDPOINTS.default + '/v1/url/:pk/:action', {}, {
+        return $resource(Twenty20AppConf.API_ENDPOINTS.default + '/v1/url/:pk', {}, {
           'get': {'cache': true},
           'query': {'cache': true, 'isArray': false},
-          'check': {'method': 'POST', 'cache': true, 'isArray': false}
+          'check': {'method': 'POST', 'url': Twenty20AppConf.API_ENDPOINTS.default + '/v1/url/check'}
         });
       }
 
