@@ -9,6 +9,8 @@ angular.module('Twenty20App', [
     'ui.router',
     'ui.bootstrap',
     // addons
+    'formly',
+    'formlyBootstrap',
     'picardy.fontawesome', // font awesooooome
     'pippTimelineDirectives',   // timeline
     'Twenty20App.config',       // config
@@ -47,6 +49,15 @@ angular.module('Twenty20App', [
         url: '/site/:pk',
         templateUrl: 'app/site/site_detail.html',
         controller: 'SiteDetailCtrl'
+      })
+      // ------------------------------------------
+      // URL Objects
+      // ------------------------------------------
+      // Add URL
+      .state('url-create', {
+        url: '/url/create',
+        templateUrl: 'app/url/url_form.html',
+        controller: 'UrlCreateCtrl'
       });
 
     $urlRouterProvider.otherwise('/');
