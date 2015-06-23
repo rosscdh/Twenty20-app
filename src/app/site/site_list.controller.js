@@ -5,8 +5,7 @@ angular.module('Twenty20App')
     '$scope',
     '$stateParams',
     'SiteService',
-    'Twenty20AppConf',
-  function ($scope, $stateParams, SiteService, Twenty20AppConf) {
+  function ($scope, $stateParams, SiteService) {
 
     var init = function () {
 

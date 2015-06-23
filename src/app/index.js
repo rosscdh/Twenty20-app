@@ -36,6 +36,19 @@ angular.module('Twenty20App', [
         controller: 'MainCtrl'
       })
       // ------------------------------------------
+      // Register & Login
+      // ------------------------------------------
+      .state('sign-up', {
+        url: '/sign-up',
+        templateUrl: 'app/register/sign-up.html',
+        controller: 'SignUpCtrl'
+      })
+      .state('sign-in', {
+        url: '/sign-in',
+        templateUrl: 'app/register/sign-in.html',
+        controller: 'SignInCtrl'
+      })
+      // ------------------------------------------
       // Site Objects
       // ------------------------------------------
       // Site List
@@ -62,4 +75,20 @@ angular.module('Twenty20App', [
 
     $urlRouterProvider.otherwise('/');
   })
+  .factory('AuthorizationHttpResponseInterceptor', [function() {
+      return {
+        request: function(config) {
+          //
+          //
+          config.headers.Authorization = 'Token 72ba44f7d699aa6804aeada2ed7333e46094e95a';
+          return config;
+        }
+      };
+    }
+  ])
+  .config(['$httpProvider',
+    function($httpProvider) {
+      $httpProvider.interceptors.push('AuthorizationHttpResponseInterceptor');
+    }
+  ])
 ;

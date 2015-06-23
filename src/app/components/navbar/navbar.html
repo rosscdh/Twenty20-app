@@ -15,7 +15,8 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li>Current date: {{ date | date:'yyyy-MM-dd' }}</li>
+        <li ng-class="{'nav-item': true, active: isActive(['sign-in'])}"><a ui-sref="sign-in">Sign-In</a></li>
+        <li ng-class="{'nav-item': true, active: isActive(['sign-up'])}"><a ui-sref="sign-up">Sign-Up</a></li>
       </ul>
     </div>
   </div>

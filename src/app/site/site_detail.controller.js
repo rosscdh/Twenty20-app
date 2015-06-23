@@ -4,16 +4,28 @@ angular.module('Twenty20App')
   .controller('SiteDetailCtrl', [
     '$scope',
     '$stateParams',
+    '$compile',
     'SiteService',
     'Twenty20AppConf',
-  function ($scope, $stateParams, SiteService, Twenty20AppConf) {
+  function ($scope, $stateParams, $compile, SiteService, Twenty20AppConf) {
 
-//    $scope.timelineData = {};
+    var slide_template = function (context) {
+      //console.log(context)
+      var template = "<p>Man o <a href=\"\">man</a></p><a ng-show=\"compare_previous\" ng-href=\"{{compare_previous}}\">Compare with previous</a><a ng-href=\"{{compare_next}}\">Compare with next</a>";
+      var html = $compile(template)(context);
+      return html.html();
+    };
+
     var date_event = function (row, url) {
+      var context = {
+        'compare_previous': (row.previous) ? Twenty20AppConf.API_ENDPOINTS.default + '/v1/url/'+row.id+'/'+row.previous+'/compare.html' : null,
+        'compare_next': (row.next) ? Twenty20AppConf.API_ENDPOINTS.default + '/v1/url/'+row.id+'/'+row.next+'/compare.html' : null,
+      };
+      console.log(slide_template(context))
       return {'startDate': row.date_of,
               'endDate': row.date_of,
               'headline': url.url,
-              'text': 'A Change Happend',
+              'text': slide_template(context),
               'tag': 'change',
               'classname': null,
               'asset': {

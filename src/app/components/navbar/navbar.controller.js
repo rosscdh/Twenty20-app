@@ -13,6 +13,6 @@ angular.module('Twenty20App')
           return true;
         }
         return false;
-      }
+      };
 
   }]);

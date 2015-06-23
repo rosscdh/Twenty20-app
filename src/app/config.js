@@ -5,7 +5,7 @@ angular.module("Twenty20App.config", [])
 	"DEBUG": false,
 	"DEFAULT_ITEMS_PER_PAGE": 25,
 	"API_ENDPOINTS": {
-		"default": "http://localhost:8000"
+		"default": "https://24904f.ngrok.com"
 	}
 })
 

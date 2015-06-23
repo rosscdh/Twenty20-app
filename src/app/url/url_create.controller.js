@@ -5,14 +5,9 @@ angular.module('Twenty20App')
     '$scope',
     '$stateParams',
     'Twenty20UrlService',
-    'Twenty20AppConf',
-  function ($scope, $stateParams, Twenty20UrlService, Twenty20AppConf) {
+  function ($scope, $stateParams, Twenty20UrlService) {
 
     var init = function () {
-
-      // UrlService.check($stateParams.pk).then(function (data) {
-      //   $scope.data = data;
-      // });
 
     };
 
@@ -34,13 +29,10 @@ angular.module('Twenty20App')
       }
     ];
 
-    $scope.onSubmit = onSubmit;
-
-
-    function onSubmit() {
-      console.log('form submitted:', $scope.url);
-      Twenty20UrlService.check($scope.url.url).then(function(data){ console.log(data) })
-    }
+    $scope.onSubmit = function onSubmit() {
+      //console.log('form submitted:', $scope.url);
+      Twenty20UrlService.check($scope.url).then(function(data){ console.log(data); });
+    };
 
     /**
     * Initialize the articles by default when controller loaded

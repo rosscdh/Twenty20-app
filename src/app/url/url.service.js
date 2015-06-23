@@ -17,11 +17,11 @@ angular.module('Twenty20App')
       }
 
       return {
-        check: function (url) {
+        check: function (data) {
             var deferred = $q.defer();
             var api = siteAPI();
 
-            api.check({'action': 'check', 'url': url},
+            api.check(data,
                 function success(data) {
                     deferred.resolve(data.toJSON());
                 },
