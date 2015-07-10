@@ -12,7 +12,8 @@ angular.module('Twenty20App', [
     'formly',
     'formlyBootstrap',
     'picardy.fontawesome', // font awesooooome
-    'pippTimelineDirectives',   // timeline
+    'pippTimelineDirectives',   // timeline horizontal
+    'angular-timeline', // vertical
     'Twenty20App.config',       // config
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
@@ -49,7 +50,22 @@ angular.module('Twenty20App', [
         controller: 'SignInCtrl'
       })
       // ------------------------------------------
-      // Site Objects
+      // Stream Objects
+      // ------------------------------------------
+      // Stream List
+      .state('stream-list', {
+        url: '/streams',
+        templateUrl: 'app/stream/stream_list.html',
+        controller: 'StreamListCtrl'
+      })
+      // Site Detail
+      .state('stream-detail', {
+        url: '/stream/:pk',
+        templateUrl: 'app/stream/stream_detail.html',
+        controller: 'StreamDetailCtrl'
+      })
+      // ------------------------------------------
+      // Site Objects **deprectiated**
       // ------------------------------------------
       // Site List
       .state('site-list', {
@@ -63,8 +79,9 @@ angular.module('Twenty20App', [
         templateUrl: 'app/site/site_detail.html',
         controller: 'SiteDetailCtrl'
       })
+
       // ------------------------------------------
-      // URL Objects
+      // URL Objects **depreciated**
       // ------------------------------------------
       // Add URL
       .state('url-create', {
